@@ -3,13 +3,10 @@ from src.scrapper.utils.requester import Getter
 
 
 
-
 class ZonaSulScraper:
     def __init__(self, url):
         self.url = url
-        self.getter = Getter(self.url)
-        self.response = self.getter.execute()
-        self.scrapper = Tagger(self.response)
+        self.scrapper = Tagger(Getter(self.url))
         self.data = {}
     def get_names(self):
         tag_names = self.scrapper.get_all_tags("span", class_="vtex-product-summary-2-x-productBrand vtex-product-summary-2-x-brandName t-body")
@@ -25,4 +22,23 @@ class ZonaSulScraper:
         print("Scraping dos dados do Zona Sul")
         self.get_names()
         self.get_full_prices()
+        return self.data
+
+class ManagerZonaSulScrapper():
+    def __init__(self,url,config):
+        self.url = url
+        self.config = config
+        self.list_routes = self.generate_list()
+        self.data = []
+    def generate_list(self):
+        routes = []
+        for chave, valores in self.config.items():
+            for valor in valores:
+                routes.append(f"{chave}/{valor}")
+        return routes
+    def extract(self):
+        for route in self.list_routes:
+            url = self.url + route
+            scrapper = ZonaSulScraper(url)
+            self.data.append(scrapper.scrap_data())
         return self.data
