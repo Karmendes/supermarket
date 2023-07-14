@@ -1,7 +1,7 @@
 from os import getenv
 from dotenv import load_dotenv
 from src.etl.etl import ETL
-from src.scrapper.scrap_zona_sul import ScrapperZonaSul
+from src.scrapper.scrap_zona_sul import ZonaSulScraper
 from src.bigquery.bq_connector import BigQueryConnector
 from src.data_manipulator.main import DataManipulator
 
@@ -13,7 +13,7 @@ URL = getenv("URL_ZONA_SUL")
 
 class ETLZonaSul(ETL):
     def __init__(self):
-        self.extracter = ScrapperZonaSul(URL)
+        self.extracter = ZonaSulScraper(URL)
         self.manipulator = DataManipulator()
         self.loader = BigQueryConnector()
     def extract(self):
