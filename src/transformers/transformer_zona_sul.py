@@ -12,4 +12,5 @@ class TransformerZonaSul(Transformer):
         self.manipulator.casting('price',float)
         self.manipulator.mark_timestamp()
         self.manipulator.mark_source('Zona Sul')
+        self.manipulator.select_columns(['names','price','source','dh_extraction'])
         return self.manipulator.data

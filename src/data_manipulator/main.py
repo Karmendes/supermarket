@@ -31,4 +31,6 @@ class DataManipulator:
         self.data[column] = datetime.now()
     def mark_source(self,source):
         self.data['source'] = source
+    def select_columns(self,columns):
+        self.data = self.data[columns]
     #return df_[['names','price','dh_extraction']]
