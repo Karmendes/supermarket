@@ -17,6 +17,7 @@ numpy==1.25.1
 pandas==2.0.3
 platformdirs==3.8.1
 pre-commit==3.3.3
+psycopg2==2.9.6
 pylint==2.17.4
 python-dateutil==2.8.2
 python-dotenv==1.0.0

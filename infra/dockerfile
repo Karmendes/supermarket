@@ -1,0 +1,8 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER datalake
+ENV POSTGRES_PASSWORD datalake
+
+EXPOSE 5432
+
+CMD ["postgres"]
