@@ -16,7 +16,7 @@ class ReadMapReduce:
 
 class DataManipulator:
     def __init__(self,reader):
-        self.reader = reader
+        self.reader = reader()
         self.data = None
         print("Instanciando classe de manipulação de dados")
     def read_data(self,data):
@@ -29,4 +29,6 @@ class DataManipulator:
         self.data[column] = self.data[column].astype(form)
     def mark_timestamp(self,column = 'dh_extraction'):
         self.data[column] = datetime.now()
+    def mark_source(self,source):
+        self.data['source'] = source
     #return df_[['names','price','dh_extraction']]
