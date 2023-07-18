@@ -1,9 +1,9 @@
 from os import getenv
 from dotenv import load_dotenv
 from src.etl.etl import ETL
-from src.scrapper.scrap_zona_sul import ManagerZonaSulScrapper
+from src.extractors.extractor_zona_sul import ExtractorZonaSul
+from src.transformers.transformer_zona_sul import TransformerZonaSul
 from src.bigquery.bq_connector import BigQueryConnector
-from src.data_manipulator.main import DataManipulator,ReadMapReduce
 from src.config.configs_zona_sul import ROUTES_ZONA_SUL
 
 
@@ -14,8 +14,8 @@ URL = getenv("URL_ZONA_SUL")
 
 class ETLZonaSul(ETL):
     def __init__(self):
-        self.extracter = ManagerZonaSulScrapper(URL,ROUTES_ZONA_SUL)
-        self.manipulator = DataManipulator(ReadMapReduce)
+        self.extracter = ExtractorZonaSul(URL,ROUTES_ZONA_SUL)
+        self.tranformer = TransformerZonaSul()
         self.loader = BigQueryConnector()
         self.data = None
     def extract(self):
@@ -23,14 +23,7 @@ class ETLZonaSul(ETL):
         self.data = self.extracter.extract()
     def transform(self):
         print('Transformando dados do zona sul')
-        # Read data
-        self.manipulator.read_data(self.data)
-        self.manipulator.join_columns('price',['integer','decimal'],',',1)
-        self.manipulator.replace_pattern('price',',','.')
-        self.manipulator.casting('price',float)
-        self.manipulator.mark_timestamp()
-        self.manipulator.mark_source('Zona Sul')
-        self.data = self.manipulator.data
+        self.data = self.tranformer.transform(self.data)
     def load(self):
         print('Carregando dados do zona sul')
         self.loader.send_data()
