@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: zona_sul
+    database: datalake  
+    schema: staging  
+    tables:
+      - name: tb_zona_sul
