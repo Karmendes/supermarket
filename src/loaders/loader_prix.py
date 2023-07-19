@@ -2,12 +2,11 @@ from src.loaders.main import Loaders
 from src.db_connector.postgres_connector import PostgreSQLConnector
 from src.utils.main import generate_credentials
 
-
 USER,PWD,HOST,PORT,DATABASE = generate_credentials()
 
 
-class LoaderZonaSul(Loaders):
+class LoaderPrix(Loaders):
     def __init__(self):
         self.db_conn = PostgreSQLConnector(USER,PWD,HOST,PORT,DATABASE)
     def load(self,data):
-        self.db_conn.send_data(data,'tb_zona_sul',if_exists='append',index = False,schema = 'staging')
+        self.db_conn.send_data(data,'tb_prix',if_exists='append',index = False,schema = 'staging')
