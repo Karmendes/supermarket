@@ -1,9 +1,10 @@
 from src.scrapper.utils.finder_tag import Tagger
 from src.scrapper.utils.requester import Getter
+from src.scrapper.main import Scrapper
 
 
 
-class ZonaSulScraper:
+class ZonaSulScraper(Scrapper):
     def __init__(self, url):
         self.url = url
         self.scrapper = Tagger(Getter(self.url))
