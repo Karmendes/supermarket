@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{source('supermarkets','tb_zona_sul')}}
+    select * from "datalake"."staging"."tb_zona_sul"
 
 ),
 renamed as (
