@@ -18,7 +18,6 @@ class DataManipulator:
     def __init__(self,reader):
         self.reader = reader()
         self.data = None
-        print("Instanciando classe de manipulação de dados")
     def read_data(self,data):
         self.data = self.reader.read(data)
     def join_columns(self,new_column,columns,sep,axis):

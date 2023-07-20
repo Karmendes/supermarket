@@ -11,4 +11,4 @@ def generate_list(config_dict):
     return routes
 
 def generate_credentials():
-    return getenv("USER"),getenv("USER"),getenv("HOST"),getenv("PORT"),getenv("DATABASE")
+    return getenv("USER_DB"),getenv("PWD_DB"),getenv("HOST"),getenv("PORT"),getenv("DATABASE")
