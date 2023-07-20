@@ -3166,3 +3166,262 @@ drop table if exists "datalake"."staging_marts"."fct_supermarkets__dbt_backup" c
 [0m20:57:47.600702 [debug] [MainThread]: Command `dbt run` succeeded at 20:57:47.600593 after 1.00 seconds
 [0m20:57:47.601015 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa60f8e7e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa60d7b4f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa60d76fb50>]}
 [0m20:57:47.601315 [debug] [MainThread]: Flushing usage events
+[0m21:02:53.096441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feeffdcfe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feefe6e83d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feefe6e8340>]}
+
+
+============================== 21:02:53.098757 | 3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2 ==============================
+[0m21:02:53.098757 [info ] [MainThread]: Running with dbt=1.5.3
+[0m21:02:53.100401 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/home/lucasmendes/.dbt', 'log_path': '/home/lucasmendes/Documentos/projects/supermarket/datalake/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m21:02:53.154037 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fef01e5f820>]}
+[0m21:02:53.169257 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feefe5cec50>]}
+[0m21:02:53.169870 [info ] [MainThread]: Registered adapter: postgres=1.5.3
+[0m21:02:53.178302 [debug] [MainThread]: checksum: d91324b50612e0c4823cec6657ec795d80c11aba9d5b50e83fb26de63277dec4, vars: {}, profile: , target: , version: 1.5.3
+[0m21:02:53.226153 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:02:53.226489 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:02:53.231111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fef0047c0d0>]}
+[0m21:02:53.232321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fef0043c850>]}
+[0m21:02:53.232710 [info ] [MainThread]: Found 3 models, 0 tests, 0 snapshots, 0 analyses, 307 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics, 0 groups
+[0m21:02:53.233029 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fef0043c910>]}
+[0m21:02:53.234180 [info ] [MainThread]: 
+[0m21:02:53.234923 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m21:02:53.236272 [debug] [ThreadPool]: Acquiring new postgres connection 'list_datalake_staging_raw'
+[0m21:02:53.258792 [debug] [ThreadPool]: Using postgres connection "list_datalake_staging_raw"
+[0m21:02:53.259642 [debug] [ThreadPool]: On list_datalake_staging_raw: BEGIN
+[0m21:02:53.260254 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:02:53.271034 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m21:02:53.271876 [debug] [ThreadPool]: Using postgres connection "list_datalake_staging_raw"
+[0m21:02:53.272546 [debug] [ThreadPool]: On list_datalake_staging_raw: /* {"app": "dbt", "dbt_version": "1.5.3", "profile_name": "datalake", "target_name": "prod", "connection_name": "list_datalake_staging_raw"} */
+select
+      'datalake' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging_raw'
+    union all
+    select
+      'datalake' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging_raw'
+  
+[0m21:02:53.275833 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+[0m21:02:53.278437 [debug] [ThreadPool]: On list_datalake_staging_raw: ROLLBACK
+[0m21:02:53.279471 [debug] [ThreadPool]: On list_datalake_staging_raw: Close
+[0m21:02:53.281434 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_datalake_staging_raw, now list_datalake_staging_marts)
+[0m21:02:53.287265 [debug] [ThreadPool]: Using postgres connection "list_datalake_staging_marts"
+[0m21:02:53.288083 [debug] [ThreadPool]: On list_datalake_staging_marts: BEGIN
+[0m21:02:53.288697 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:02:53.299244 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m21:02:53.300079 [debug] [ThreadPool]: Using postgres connection "list_datalake_staging_marts"
+[0m21:02:53.300812 [debug] [ThreadPool]: On list_datalake_staging_marts: /* {"app": "dbt", "dbt_version": "1.5.3", "profile_name": "datalake", "target_name": "prod", "connection_name": "list_datalake_staging_marts"} */
+select
+      'datalake' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging_marts'
+    union all
+    select
+      'datalake' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging_marts'
+  
+[0m21:02:53.305520 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.0 seconds
+[0m21:02:53.308047 [debug] [ThreadPool]: On list_datalake_staging_marts: ROLLBACK
+[0m21:02:53.309195 [debug] [ThreadPool]: On list_datalake_staging_marts: Close
+[0m21:02:53.318461 [debug] [MainThread]: Using postgres connection "master"
+[0m21:02:53.319254 [debug] [MainThread]: On master: BEGIN
+[0m21:02:53.319910 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:02:53.330563 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m21:02:53.331373 [debug] [MainThread]: Using postgres connection "master"
+[0m21:02:53.332298 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.5.3", "profile_name": "datalake", "target_name": "prod", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m21:02:53.340824 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m21:02:53.343149 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3467f4ee-58c4-4a48-9a38-aeed1e7e2ed2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fef0043c280>]}
+[0m21:02:53.344083 [debug] [MainThread]: On master: ROLLBACK
+[0m21:02:53.345215 [debug] [MainThread]: On master: Close
+[0m21:02:53.346611 [info ] [MainThread]: Concurrency: 1 threads (target='prod')
+[0m21:02:53.347524 [info ] [MainThread]: 
+[0m21:02:53.353172 [debug] [Thread-1 (]: Began running node model.datalake._prix__prices
+[0m21:02:53.354485 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_datalake_staging_marts, now model.datalake._prix__prices)
+[0m21:02:53.355260 [debug] [Thread-1 (]: Began compiling node model.datalake._prix__prices
+[0m21:02:53.360787 [debug] [Thread-1 (]: Writing injected SQL for node "model.datalake._prix__prices"
+[0m21:02:53.362082 [debug] [Thread-1 (]: Timing info for model.datalake._prix__prices (compile): 21:02:53.355859 => 21:02:53.361623
+[0m21:02:53.362910 [debug] [Thread-1 (]: Began executing node model.datalake._prix__prices
+[0m21:02:53.363895 [debug] [Thread-1 (]: Timing info for model.datalake._prix__prices (execute): 21:02:53.363424 => 21:02:53.363463
+[0m21:02:53.365553 [debug] [Thread-1 (]: Finished running node model.datalake._prix__prices
+[0m21:02:53.366235 [debug] [Thread-1 (]: Began running node model.datalake._zona_sul__prices
+[0m21:02:53.367554 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datalake._prix__prices, now model.datalake._zona_sul__prices)
+[0m21:02:53.368395 [debug] [Thread-1 (]: Began compiling node model.datalake._zona_sul__prices
+[0m21:02:53.373198 [debug] [Thread-1 (]: Writing injected SQL for node "model.datalake._zona_sul__prices"
+[0m21:02:53.374526 [debug] [Thread-1 (]: Timing info for model.datalake._zona_sul__prices (compile): 21:02:53.368902 => 21:02:53.374073
+[0m21:02:53.375298 [debug] [Thread-1 (]: Began executing node model.datalake._zona_sul__prices
+[0m21:02:53.376251 [debug] [Thread-1 (]: Timing info for model.datalake._zona_sul__prices (execute): 21:02:53.375841 => 21:02:53.375864
+[0m21:02:53.377965 [debug] [Thread-1 (]: Finished running node model.datalake._zona_sul__prices
+[0m21:02:53.378830 [debug] [Thread-1 (]: Began running node model.datalake.fct_supermarkets
+[0m21:02:53.379536 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.datalake._zona_sul__prices, now model.datalake.fct_supermarkets)
+[0m21:02:53.379891 [debug] [Thread-1 (]: Began compiling node model.datalake.fct_supermarkets
+[0m21:02:53.382208 [debug] [Thread-1 (]: Writing injected SQL for node "model.datalake.fct_supermarkets"
+[0m21:02:53.382862 [debug] [Thread-1 (]: Timing info for model.datalake.fct_supermarkets (compile): 21:02:53.380080 => 21:02:53.382687
+[0m21:02:53.383150 [debug] [Thread-1 (]: Began executing node model.datalake.fct_supermarkets
+[0m21:02:53.383479 [debug] [Thread-1 (]: Timing info for model.datalake.fct_supermarkets (execute): 21:02:53.383328 => 21:02:53.383339
+[0m21:02:53.384223 [debug] [Thread-1 (]: Finished running node model.datalake.fct_supermarkets
+[0m21:02:53.385117 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:02:53.385408 [debug] [MainThread]: Connection 'model.datalake.fct_supermarkets' was properly closed.
+[0m21:02:53.386139 [debug] [MainThread]: Command end result
+[0m21:02:53.392523 [debug] [MainThread]: Acquiring new postgres connection 'generate_catalog'
+[0m21:02:53.392878 [info ] [MainThread]: Building catalog
+[0m21:02:53.394932 [debug] [ThreadPool]: Acquiring new postgres connection 'datalake.information_schema'
+[0m21:02:53.407032 [debug] [ThreadPool]: Using postgres connection "datalake.information_schema"
+[0m21:02:53.407849 [debug] [ThreadPool]: On datalake.information_schema: BEGIN
+[0m21:02:53.408422 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:02:53.416782 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m21:02:53.417454 [debug] [ThreadPool]: Using postgres connection "datalake.information_schema"
+[0m21:02:53.418084 [debug] [ThreadPool]: On datalake.information_schema: /* {"app": "dbt", "dbt_version": "1.5.3", "profile_name": "datalake", "target_name": "prod", "connection_name": "datalake.information_schema"} */
+
+    
+    
+
+    select
+        'datalake' as table_database,
+        sch.nspname as table_schema,
+        tbl.relname as table_name,
+        case tbl.relkind
+            when 'v' then 'VIEW'
+            else 'BASE TABLE'
+        end as table_type,
+        tbl_desc.description as table_comment,
+        col.attname as column_name,
+        col.attnum as column_index,
+        pg_catalog.format_type(col.atttypid, col.atttypmod) as column_type,
+        col_desc.description as column_comment,
+        pg_get_userbyid(tbl.relowner) as table_owner
+
+    from pg_catalog.pg_namespace sch
+    join pg_catalog.pg_class tbl on tbl.relnamespace = sch.oid
+    join pg_catalog.pg_attribute col on col.attrelid = tbl.oid
+    left outer join pg_catalog.pg_description tbl_desc on (tbl_desc.objoid = tbl.oid and tbl_desc.objsubid = 0)
+    left outer join pg_catalog.pg_description col_desc on (col_desc.objoid = tbl.oid and col_desc.objsubid = col.attnum)
+
+    where (upper(sch.nspname) = upper('staging_marts') or upper(sch.nspname) = upper('staging') or upper(sch.nspname) = upper('staging_raw'))
+      and not pg_is_other_temp_schema(sch.oid) -- not a temporary schema belonging to another session
+      and tbl.relpersistence in ('p', 'u') -- [p]ermanent table or [u]nlogged table. Exclude [t]emporary tables
+      and tbl.relkind in ('r', 'v', 'f', 'p') -- o[r]dinary table, [v]iew, [f]oreign table, [p]artitioned table. Other values are [i]ndex, [S]equence, [c]omposite type, [t]OAST table, [m]aterialized view
+      and col.attnum > 0 -- negative numbers are used for system columns such as oid
+      and not col.attisdropped -- column as not been dropped
+
+    order by
+        sch.nspname,
+        tbl.relname,
+        col.attnum
+[0m21:02:53.423317 [debug] [ThreadPool]: SQL status: SELECT 20 in 0.0 seconds
+[0m21:02:53.434634 [debug] [ThreadPool]: On datalake.information_schema: ROLLBACK
+[0m21:02:53.435873 [debug] [ThreadPool]: On datalake.information_schema: Close
+[0m21:02:53.447713 [info ] [MainThread]: Catalog written to /home/lucasmendes/Documentos/projects/supermarket/datalake/target/catalog.json
+[0m21:02:53.449325 [debug] [MainThread]: Command `dbt docs generate` succeeded at 21:02:53.449108 after 0.36 seconds
+[0m21:02:53.449884 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m21:02:53.450328 [debug] [MainThread]: Connection 'datalake.information_schema' was properly closed.
+[0m21:02:53.450839 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feeffdcfe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feefe5cec50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7feefe57f9d0>]}
+[0m21:02:53.451423 [debug] [MainThread]: Flushing usage events
+[0m21:03:29.109786 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbf9dfe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe2f8310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe2f8070>]}
+
+
+============================== 21:03:29.112846 | ed0d56e1-fb03-488f-8f54-1ae2f0a1a6ae ==============================
+[0m21:03:29.112846 [info ] [MainThread]: Running with dbt=1.5.3
+[0m21:03:29.113315 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/lucasmendes/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/home/lucasmendes/Documentos/projects/supermarket/datalake/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m21:03:29.171637 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ed0d56e1-fb03-488f-8f54-1ae2f0a1a6ae', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe2cbd60>]}
+[0m21:03:29.187286 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ed0d56e1-fb03-488f-8f54-1ae2f0a1a6ae', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe1dd360>]}
+[0m21:04:34.090779 [error] [MainThread]: Encountered an error:
+
+[0m21:04:34.105176 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/requires.py", line 86, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/requires.py", line 71, in wrapper
+    return func(*args, **kwargs)
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/requires.py", line 142, in wrapper
+    return func(*args, **kwargs)
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/requires.py", line 168, in wrapper
+    return func(*args, **kwargs)
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/requires.py", line 215, in wrapper
+    return func(*args, **kwargs)
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/cli/main.py", line 301, in docs_serve
+    results = task.run()
+  File "/home/lucasmendes/Documentos/projects/supermarket/supermarket/lib/python3.10/site-packages/dbt/task/serve.py", line 28, in run
+    httpd.serve_forever()
+  File "/usr/lib/python3.10/socketserver.py", line 232, in serve_forever
+    ready = selector.select(poll_interval)
+  File "/usr/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt
+
+[0m21:04:34.107493 [debug] [MainThread]: Command `dbt docs serve` failed at 21:04:34.107189 after 65.01 seconds
+[0m21:04:34.108510 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbf9dfe50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe1c63e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6dbe1c6410>]}
+[0m21:04:34.109458 [debug] [MainThread]: Flushing usage events
