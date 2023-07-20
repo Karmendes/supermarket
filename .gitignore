@@ -3,3 +3,4 @@
 .env
 supermarket
 logs/*
+infra/airflow/logs/*
