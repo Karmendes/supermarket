@@ -16,4 +16,4 @@ def run_prix():
     etl.run()
     return make_response(jsonify('ETL Concluído!'))
 
-app.run()
+app.run(host='0.0.0.0', port=5000)
