@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: supermarkets
+    database: datalake  
+    schema: staging  
+    tables:
+      - name: tb_zona_sul
+      - name: tb_prix

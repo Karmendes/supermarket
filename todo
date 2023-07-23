@@ -1,0 +1,6 @@
+1. Criar rotas para o DBT?
+2. Colocar na DAG
+3. Tentar rodar o kubernetes local
+3. Mapear os serviços para colocar no terraform
+4. Subir os serviços no terraform
+5. 
