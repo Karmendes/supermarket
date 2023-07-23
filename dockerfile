@@ -9,8 +9,12 @@ COPY ./ .
 # Instale as dependências da aplicação
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copie o código da API Flask para o contêiner
+# Copie o código da API Flask para o contêiner 
 COPY app.py .
+
+# COlocando o profile do dbt
+RUN mkdir -p /root/.dbt
+COPY profiles.yml ../root/.dbt/
 
 # Exponha a porta em que a API Flask está escutando
 EXPOSE 5000
