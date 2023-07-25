@@ -20,13 +20,12 @@ def run_prix():
 
 @app.route('/staging')
 def run_staging():
-    try:
-        # Use o subprocess para executar o script Bash
-        # Certifique-se de fornecer o caminho correto para o script
-        subprocess.run(['bash', 'datalake/routes/route_staging.sh'], check=True)
-        print("Script Bash executado com sucesso!")
-    except Exception as _erro_bash:
-        print(f"Erro desconhecido: {_erro_bash}")
+    subprocess.run(['bash', 'datalake/routes/route_staging.sh'], check=True)
+    return make_response(jsonify('ETL Concluído!'))
+
+@app.route('/marts')
+def run_marts():
+    subprocess.run(['bash', 'datalake/routes/route_staging.sh'], check=True)
     return make_response(jsonify('ETL Concluído!'))
 
 app.run(host='0.0.0.0', port=5000)
