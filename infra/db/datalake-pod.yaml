@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-datalake
+  labels:
+    db: datalake
+spec:
+  containers:
+    - name: container-datalake
+      image: db-datalake:latest
+      ports:
+        - containerPort: 5432

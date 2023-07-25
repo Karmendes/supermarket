@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-flask
+  labels:
+    app: api-flask
+spec:
+  containers:
+    - name: container-flask
+      image: api-flask:latest
+      ports:
+        - containerPort: 5000
+
+

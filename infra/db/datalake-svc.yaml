@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-datalake-service
+spec:
+  type: ClusterIP
+  selector:
+    db: datalake
+  ports:
+    - port: 5432
+      targetPort: 5432 
