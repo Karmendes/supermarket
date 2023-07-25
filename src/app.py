@@ -1,7 +1,7 @@
 # save this as app.py
 import subprocess
 from flask import Flask,jsonify,make_response
-from src.etl.factory import create_etl
+from etl.factory import create_etl
 
 
 app = Flask(__name__)

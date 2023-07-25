@@ -250,7 +250,7 @@ executor: "KubernetesExecutor"
 allowPodLaunching: true
 
 # Environment variables for all airflow containers
-env: []
+env: 
   - name: "AIRFLOW__CORE__REMOTE_LOGGING"
     value: "True"
   - name: "AIRFLOW__LOGGING__REMOTE_BASE_LOG_FOLDER"
@@ -2143,24 +2143,24 @@ dags:
     # access mode of the persistent volume
     accessMode: ReadWriteOnce
     ## the name of an existing PVC to use
-    existingClaim: airflow-dags-claim
+    existingClaim: 
     ## optional subpath for dag volume mount
-    subPath: "dags"
+    subPath: 
   gitSync:
     enabled: true
 
     # git repo clone url
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
-    repo: https://github.com/apache/airflow.git
-    branch: v2-2-stable
+    repo: https://github.com/Karmendes/supermarket.git
+    branch: main
     rev: HEAD
     depth: 1
     # the number of consecutive failures allowed before aborting
     maxFailures: 0
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
-    subPath: "dags"
+    subPath: "infra/airflow/dags"
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
@@ -2233,7 +2233,7 @@ dags:
 logs:
   persistence:
     # Enable persistent volume for storing logs
-    enabled: true
+    enabled: false
     # Volume size for logs
     size: 100Gi
     # Annotations for the logs PVC
@@ -2241,5 +2241,5 @@ logs:
     # If using a custom storageClass, pass name here
     storageClassName:
     ## the name of an existing PVC to use
-    existingClaim: airflow-logs-claim
+    existingClaim: 
 

@@ -1,1 +1,0 @@
-select names,price * 20 as total from staging.tb_zona_sul
