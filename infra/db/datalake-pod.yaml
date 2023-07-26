@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: container-datalake
-      image: db-datalake:latest
+      image: lucaseqt/db-datalake
       ports:
         - containerPort: 5432
