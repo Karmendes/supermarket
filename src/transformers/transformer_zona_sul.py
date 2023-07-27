@@ -1,5 +1,5 @@
-from src.transformers.main import Transformer
-from src.data_manipulator.main import DataManipulator,ReadMapReduce
+from transformers.main import Transformer
+from data_manipulator.main import DataManipulator,ReadMapReduce
 
 class TransformerZonaSul(Transformer):
     def __init__(self):

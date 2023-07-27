@@ -1,10 +1,10 @@
 from os import getenv
 from dotenv import load_dotenv
-from src.etl.etl import ETL
-from src.extractors.extractor_zona_sul import ExtractorZonaSul
-from src.transformers.transformer_zona_sul import TransformerZonaSul
-from src.loaders.loader_zona_sul import LoaderZonaSul
-from src.config.configs_zona_sul import ROUTES_ZONA_SUL
+from etl.etl import ETL
+from extractors.extractor_zona_sul import ExtractorZonaSul
+from transformers.transformer_zona_sul import TransformerZonaSul
+from loaders.loader_zona_sul import LoaderZonaSul
+from config.configs_zona_sul import ROUTES_ZONA_SUL
 
 
 load_dotenv()

@@ -1,6 +1,6 @@
-from src.scrapper.scrap_prix import PrixScrapper
-from src.extractors.main import Extractor
-from src.utils.main import generate_list
+from scrapper.scrap_prix import PrixScrapper
+from extractors.main import Extractor
+from utils.main import generate_list
 
 
 class ExtractorPrix(Extractor):

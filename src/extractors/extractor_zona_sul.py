@@ -1,6 +1,6 @@
-from src.scrapper.scrap_zona_sul import ZonaSulScraper
-from src.extractors.main import Extractor
-from src.utils.main import generate_list
+from scrapper.scrap_zona_sul import ZonaSulScraper
+from extractors.main import Extractor
+from utils.main import generate_list
 
 class ExtractorZonaSul(Extractor):
     def __init__(self,url,config):

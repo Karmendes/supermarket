@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from src.db_connector.main import DataBaseConnector
+from db_connector.main import DataBaseConnector
 
 class PostgreSQLConnector(DataBaseConnector):
     def __init__(self,user,pwd,host,port,database):

@@ -1,6 +1,6 @@
-from src.loaders.main import Loaders
-from src.db_connector.postgres_connector import PostgreSQLConnector
-from src.utils.main import generate_credentials
+from loaders.main import Loaders
+from db_connector.postgres_connector import PostgreSQLConnector
+from utils.main import generate_credentials
 
 USER,PWD,HOST,PORT,DATABASE = generate_credentials()
 

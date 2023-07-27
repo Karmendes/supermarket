@@ -1,10 +1,10 @@
 from os import getenv
 from dotenv import load_dotenv
-from src.etl.etl import ETL
-from src.extractors.extractor_prix import ExtractorPrix
-from src.transformers.transformer_prix import TransformerPrix
-from src.loaders.loader_prix import LoaderPrix
-from src.config.configs_prix import ROUTES_PRIX
+from etl.etl import ETL
+from extractors.extractor_prix import ExtractorPrix
+from transformers.transformer_prix import TransformerPrix
+from loaders.loader_prix import LoaderPrix
+from config.configs_prix import ROUTES_PRIX
 
 load_dotenv()
 URL = getenv("URL_PRIX")

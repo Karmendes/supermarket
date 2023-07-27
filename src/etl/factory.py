@@ -1,5 +1,5 @@
-from src.etl.etl_prix import ETLPrix
-from src.etl.etl_zonasul import ETLZonaSul
+from etl.etl_prix import ETLPrix
+from etl.etl_zonasul import ETLZonaSul
 
 def create_etl(etl_name):
 

@@ -1,6 +1,6 @@
-from src.scrapper.utils.finder_tag import Tagger
-from src.scrapper.utils.requester import Getter
-from src.scrapper.main import Scrapper
+from scrapper.utils.finder_tag import Tagger
+from scrapper.utils.requester import Getter
+from scrapper.main import Scrapper
 
 class PrixScrapper(Scrapper):
     def __init__(self, url):
