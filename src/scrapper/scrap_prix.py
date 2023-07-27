@@ -14,7 +14,6 @@ class PrixScrapper(Scrapper):
         tag_prices = self.scrapper.get_all_tags("div", class_="price")
         self.data['prices'] = [x.find('span',class_ = 'newPrice').find('em').text for x in tag_prices]
     def scrap_data(self):
-        print("Scraping dos dados do Prix")
         self.get_names()
         self.get_full_prices()
         return self.data

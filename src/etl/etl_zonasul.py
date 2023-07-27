@@ -5,6 +5,7 @@ from extractors.extractor_zona_sul import ExtractorZonaSul
 from transformers.transformer_zona_sul import TransformerZonaSul
 from loaders.loader_zona_sul import LoaderZonaSul
 from config.configs_zona_sul import ROUTES_ZONA_SUL
+from logger.main import Logger
 
 
 load_dotenv()
@@ -19,17 +20,17 @@ class ETLZonaSul(ETL):
         self.loader = LoaderZonaSul()
         self.data = None
     def extract(self):
-        print('Extraindo dados do zona sul')
+        Logger.emit('Extracting data from Zona Sul')
         self.data = self.extracter.extract()
     def transform(self):
-        print('Transformando dados do zona sul')
+        Logger.emit('Transforming data from Zona Sul')
         self.data = self.tranformer.transform(self.data)
     def load(self):
-        print('Carregando dados do zona sul')
+        Logger.emit('Loading data from Zona Sul')
         self.loader.load(self.data)
     def run(self):
-        print('Rodando pipeline dos dados do zona sul')
+        Logger.emit('Initalizing ETL for Zona Sul')
         self.extract()
         self.transform()
         self.load()
-        print('Completando pipeline dos dados do zona sul')
+        Logger.emit('Finishing ETL from Zona Sul')

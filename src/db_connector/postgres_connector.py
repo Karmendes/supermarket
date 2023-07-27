@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from db_connector.main import DataBaseConnector
+from logger.main import Logger
 
 class PostgreSQLConnector(DataBaseConnector):
     def __init__(self,user,pwd,host,port,database):
@@ -17,6 +18,7 @@ class PostgreSQLConnector(DataBaseConnector):
         )
         self.session_maker = sessionmaker(bind=self.engine)
         self.session = self.session_maker()
+        Logger.emit('Setting connection with Postgres')
     def send_data(self,dataframe,table_name,**kwargs):
         dataframe.to_sql(table_name,self.engine,**kwargs)
     def retrieve_data(self,query):

@@ -20,7 +20,6 @@ class ZonaSulScraper(Scrapper):
         self.data['decimal'] = [self.scrapper.get_single_tag("span",
         class_="zonasul-zonasul-store-0-x-currencyFraction", obj=x).text for x in tag_prices]
     def scrap_data(self):
-        print("Scraping dos dados do Zona Sul")
         self.get_names()
         self.get_full_prices()
         return self.data

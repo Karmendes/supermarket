@@ -5,6 +5,7 @@ from extractors.extractor_prix import ExtractorPrix
 from transformers.transformer_prix import TransformerPrix
 from loaders.loader_prix import LoaderPrix
 from config.configs_prix import ROUTES_PRIX
+from logger.main import Logger
 
 load_dotenv()
 URL = getenv("URL_PRIX")
@@ -16,18 +17,18 @@ class ETLPrix(ETL):
         self.loader = LoaderPrix()
         self.data = None
     def extract(self):
-        print('Extraindo dados do Prix')
+        Logger.emit('Extracting data from Prix')
         self.data = self.extracter.extract()
     def transform(self):
-        print('Transformando dados Prix')
+        Logger.emit('Transforming data from Prix')
         self.data = self.tranformer.transform(self.data)
     def load(self):
-        print('Carregando dados do Prix')
+        Logger.emit('Loading data from Prix')
         self.loader.load(self.data)
     def run(self):
-        print('Rodando pipeline dos dados do Prix')
+        Logger.emit('Initalizing ETL for Prix')
         self.extract()
         self.transform()
         self.load()
-        print('Completando pipeline dos dados do Prix')
+        Logger.emit('Finishing ETL for Prix')
         
