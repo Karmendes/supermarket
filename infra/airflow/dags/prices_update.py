@@ -1,7 +1,6 @@
 from datetime import datetime,timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.operators.empty import EmptyOperator
 from hook.hook_requests import call_api
 
 
@@ -41,8 +40,18 @@ task_prix = PythonOperator(
     dag=dag
     )
 
-task_fake_1 = EmptyOperator(task_id='dbt_staging',dag=dag)
+task_staging = PythonOperator(
+    task_id='dbt_staging',
+    python_callable=call_api,
+    op_args=['staging'],
+    dag=dag
+)
 
-task_fake_2 = EmptyOperator(task_id='dbt_mart',dag=dag)
+task_marts = PythonOperator(
+    task_id='dbt_marts',
+    python_callable=call_api,
+    op_args=['marts'],
+    dag=dag
+)
 
-[task_zona_sul, task_prix] >> task_fake_1 >> task_fake_2
+[task_zona_sul, task_prix] >> task_staging >> task_marts
