@@ -90,12 +90,12 @@ x-airflow-common:
 
 
 services:
-  api:
+  api-flask-service:
     build:
-      context: ./
+      context: ./src/
     ports:
       - "5000:5000"
-  datalake:
+  db-datalake-service:
     build:
       context: ./infra/db/
     ports:
